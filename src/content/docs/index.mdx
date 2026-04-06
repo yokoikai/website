@@ -1,0 +1,42 @@
+---
+title: Yokoi
+description: A platform for thoughtful writers and deliberate readers.
+template: splash
+draft: false
+hero:
+  title: Where stories are <em>written</em>, read, and <em>remembered</em>
+  tagline: A platform for thoughtful writers and deliberate readers.
+  actions:
+    - text: Get Started
+      link: https://editor.yokoi.app/register
+      icon: right-arrow
+      variant: primary
+    - text: Log In
+      link: https://editor.yokoi.app/login
+      variant: secondary
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+## Everything you need to write
+
+<CardGrid>
+  <Card title="Manuscript Editor" icon="pencil">
+    Write in Markdown with a distraction-free editor. Every save creates a new revision — your full history is always one click away.
+  </Card>
+  <Card title="Story Bible" icon="open-book">
+    Keep your world consistent. Manage characters, locations, factions, items, lore, timelines, and research notes all linked to your manuscript.
+  </Card>
+  <Card title="Reader Comments" icon="comment">
+    Readers can annotate exact passages. Comments are anchored to character offsets and survive future revisions with fuzzy re-matching.
+  </Card>
+  <Card title="Revision Timeline" icon="list-format">
+    Browse the full history of any chapter or book with side-by-side diffs. See exactly what changed and when.
+  </Card>
+  <Card title="AI Integration via MCP" icon="laptop">
+    Connect AI assistants like Claude directly to your manuscripts using the built-in [MCP server](/guides/mcp-server). Create chapters, query your story bible, and more — without leaving your AI tool.
+  </Card>
+  <Card title="OPDS Feed" icon="download">
+    Read your library on any OPDS-compatible app — KOReader, Calibre, Panels, and more. Your published and private books, always in sync. [Learn how to connect](/guides/opds-server).
+  </Card>
+</CardGrid>

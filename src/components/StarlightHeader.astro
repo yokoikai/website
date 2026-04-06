@@ -1,0 +1,134 @@
+---
+import Search from 'virtual:starlight/components/Search';
+import ThemeSelect from 'virtual:starlight/components/ThemeSelect';
+import SiteTitle from 'virtual:starlight/components/SiteTitle';
+import type { Props } from '@astrojs/starlight/props';
+
+const { hasSidebar } = Astro.props;
+---
+
+<div class="yk-header-inner">
+  <div class="yk-title-wrap">
+    <SiteTitle {...Astro.props} />
+  </div>
+
+  <nav class="yk-nav" aria-label="Site navigation">
+    <a href="/guides/mcp-server/" class="yk-nav-link">Documentation</a>
+    <a href="https://editor.yokoi.app" class="yk-nav-link">Open App</a>
+  </nav>
+
+  <div class="yk-right">
+    <div class="yk-search">
+      <Search {...Astro.props} />
+    </div>
+    <div class="yk-actions">
+      <ThemeSelect {...Astro.props} />
+      <a href="https://editor.yokoi.app/login" class="yk-btn-ghost">Sign In</a>
+      <a href="https://editor.yokoi.app/register" class="yk-btn-accent">Get Started</a>
+    </div>
+  </div>
+</div>
+
+<style>
+  .yk-header-inner {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    height: 100%;
+    width: 100%;
+    padding-inline: var(--sl-nav-pad-x);
+  }
+
+  .yk-title-wrap {
+    flex-shrink: 0;
+    overflow: clip;
+  }
+
+  .yk-nav {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    margin-inline-start: 0.5rem;
+  }
+
+  .yk-nav-link {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--sl-color-gray-2);
+    text-decoration: none;
+    transition: color 0.15s;
+    white-space: nowrap;
+  }
+
+  .yk-nav-link:hover {
+    color: var(--sl-color-white);
+  }
+
+  .yk-right {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-inline-start: auto;
+  }
+
+  .yk-search {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .yk-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-shrink: 0;
+  }
+
+  .yk-btn-ghost,
+  .yk-btn-accent {
+    font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    padding: 0.375rem 0.875rem;
+    border-radius: 0.375rem;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: opacity 0.15s;
+    line-height: 1.5;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .yk-btn-ghost {
+    color: var(--sl-color-gray-2);
+    outline: 1px solid var(--sl-color-hairline);
+    background: transparent;
+  }
+
+  .yk-btn-ghost:hover {
+    color: var(--sl-color-white);
+    background: var(--sl-color-gray-6);
+  }
+
+  .yk-btn-accent {
+    background: linear-gradient(135deg, #006b62 0%, #005e56 100%);
+    color: #e2fff9;
+  }
+
+  :root:not([data-theme='light']) .yk-btn-accent {
+    background: linear-gradient(135deg, #4db8ae 0%, #3da89e 100%);
+    color: #002f2b;
+  }
+
+  .yk-btn-accent:hover {
+    opacity: 0.88;
+  }
+
+  /* Hide nav and CTAs on narrow screens — keep search + theme toggle */
+  @media (max-width: 50rem) {
+    .yk-nav,
+    .yk-actions .yk-btn-ghost,
+    .yk-actions .yk-btn-accent {
+      display: none;
+    }
+  }
+</style>
